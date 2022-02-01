@@ -39,7 +39,7 @@ class GameWordsManager(private val context: Context) {
     /***
      * Convert the json to a list of words
      */
-    private fun getListOfWordsFromAssetsFolder(): List<Word> {
+    fun getListOfWordsFromAssetsFolder(): List<Word> {
         val jsonList = getJsonDataFromAsset(context, "words.json")
         return if (jsonList == null) {
             emptyList()
@@ -51,7 +51,7 @@ class GameWordsManager(private val context: Context) {
     /***
      * Gets the json string from the assets folder.
      */
-    private fun getJsonDataFromAsset(context: Context, fileName: String): String? {
+    fun getJsonDataFromAsset(context: Context, fileName: String): String? {
         val jsonString: String
         try {
             jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
