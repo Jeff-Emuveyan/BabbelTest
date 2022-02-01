@@ -8,7 +8,7 @@ From start to finish, the develpmemt time was 6hrs approximately.
 ## Time distrubution
 The time distribution for the game is as follows:\n
 1) Initial planning: It was necessary to plan how the game should look and operate before coding begins. This took 1hr
-2) Writing the game logic: The game logic involes classes that fecth list of words from the json and determine if the user passesd or failed a question. 
+2) Writing the game logic: The game logic involes classes that fetch list of words from the json and determine if the user passesd or failed a question. 
 Writing and manually testing this class took 3hrs.
 3) Wrtine the game's user interface. The total time spent on the user interface of the app is 2hrs.
 4) Instrumented test: This project contains instrumented tests for GameWordsManagerInstrumentedTest class. This took 30min.
@@ -22,7 +22,7 @@ handled by ```GameUIManager``` and the logic of the game is handled by ```GameWo
 mixed with business logic.
 
 ## Decisions made because of restricted time
-Becasue of restricted time, I decided to keep the UI as simple as possible. Nothing facy. Stright to the point.
+Becasue of restricted time, I decided to keep the UI as simple as possible. Nothing facy. Straight to the point.
 
 ## What would be the first thing to improve or add if there had been more time
 I didnt have time to write UI tests. If I had more time I would have written them.
