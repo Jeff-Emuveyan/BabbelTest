@@ -39,9 +39,6 @@ class GameFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         startGame(binding.root)
-        binding.button.setOnClickListener {
-            startGame(binding.root)
-        }
     }
 
     private fun startGame(view: View) {
@@ -50,7 +47,7 @@ class GameFragment : Fragment() {
         requireActivity().windowManager.defaultDisplay.getMetrics(displayMetrics)
 
         var height = displayMetrics.heightPixels
-        val uiParams = UIParams(binding.textView, binding.textView2, binding.buttonPositive, binding.buttonNegative)
+        val uiParams = UIParams(binding.tvWord, binding.tvTranslation, binding.buttonPositive, binding.buttonNegative)
         val config = Config(height, 15_000)
         val gameUIManager =  GameUIManager(uiParams, config)
         gameUIManager.observeGameConclusion { userAnsweredQuestionCorrectly ->
