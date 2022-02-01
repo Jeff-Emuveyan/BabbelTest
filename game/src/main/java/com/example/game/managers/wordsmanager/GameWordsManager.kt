@@ -1,4 +1,4 @@
-package com.example.game.wordsmanager
+package com.example.game.managers.wordsmanager
 
 import android.content.Context
 import com.example.game.model.GameData

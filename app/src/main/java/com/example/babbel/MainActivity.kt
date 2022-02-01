@@ -3,7 +3,7 @@ package com.example.babbel
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.babbel.databinding.ActivityMainBinding
-import com.example.game.GameFragment
+import com.example.game.ui.GameFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

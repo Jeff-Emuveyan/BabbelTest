@@ -1,6 +1,5 @@
-package com.example.game
+package com.example.game.ui
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
@@ -58,7 +57,7 @@ class GameFragment : Fragment() {
             Log.e("Jeff", "Game has ended with result: $userAnsweredQuestionCorrectly")
         }
 
-        val gameWordsManager = com.example.game.wordsmanager.GameWordsManager(requireContext())
+        val gameWordsManager = com.example.game.managers.wordsmanager.GameWordsManager(requireContext())
         val gameData = gameWordsManager.getRandomGameData()
 
         gameUIManager.startGame(gameData.word, gameData.possibleTranslation, gameData.isCorrectTranslation)
