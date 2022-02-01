@@ -43,7 +43,7 @@ class GameUIManager(private val uiParams: UIParams,
      * the user failed to provide an answer before the time ran out. It gives a boolean: userAnsweredQuestionCorrectly
      * which will be true only when the user was able to determine correctly if the translation was true or false.
      */
-    fun observeGameConclusion(onSessionEnd: (userAnsweredQuestionCorrectly: Boolean)-> Unit) {
+    fun observeGameSessionConclusion(onSessionEnd: (userAnsweredQuestionCorrectly: Boolean)-> Unit) {
         this.onSessionEnd = onSessionEnd
     }
     /***
