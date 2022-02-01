@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:background="@drawable/bottom_sheet_shape">
 
-
     <TextView
         android:id="@+id/tvInfo"
         android:layout_width="0dp"
@@ -22,20 +21,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Your score is" />
-
     <Button
         android:id="@+id/button"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="0dp"
+        android:textColor="@color/black"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="1dp"
-        tools:text="Start"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/tvInfo"
+        tools:text="Start" />
 </androidx.constraintlayout.widget.ConstraintLayout>
