@@ -8,9 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.example.babbel.Config
-import com.example.babbel.GameUIManager
-import com.example.babbel.UIParams
+import com.example.game.managers.uimanager.Config
+import com.example.game.managers.uimanager.GameUIManager
+import com.example.game.managers.uimanager.UIParams
 import com.example.game.databinding.GameFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -51,7 +51,7 @@ class GameFragment : Fragment() {
 
         var height = displayMetrics.heightPixels
         val uiParams = UIParams(binding.textView, binding.textView2, binding.buttonPositive, binding.buttonNegative)
-        val config = Config(height, 20_000)
+        val config = Config(height, 15_000)
         val gameUIManager =  GameUIManager(uiParams, config)
         gameUIManager.observeGameConclusion { userAnsweredQuestionCorrectly ->
             Log.e("Jeff", "Game has ended with result: $userAnsweredQuestionCorrectly")

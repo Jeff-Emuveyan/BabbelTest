@@ -1,4 +1,4 @@
-package com.example.babbel
+package com.example.game.managers.uimanager
 
 import android.animation.ObjectAnimator
 import android.os.CountDownTimer
@@ -10,7 +10,8 @@ import android.widget.TextView
  * The purpose of this class is to control the UI of the game.
  */
 class GameUIManager(private val uiParams: UIParams,
-                    private val config: Config) {
+                    private val config: Config
+) {
 
     private var word: String = ""
     private var possibleTranslation: String = ""
@@ -80,8 +81,8 @@ class GameUIManager(private val uiParams: UIParams,
      * that the user was not able to determine if the translation was correct or false.
      */
     private fun completeGameSession(userAnswer: Boolean?) {
-        objectAnimator?.duration = 500
         objectAnimator?.reverse()
+        objectAnimator?.duration = 500
 
         timer?.cancel()
         timer = null
@@ -135,7 +136,7 @@ class GameUIManager(private val uiParams: UIParams,
     private fun startAnimation() {
         objectAnimator = ObjectAnimator.ofFloat(uiParams.tvPossibleTranslation,
             "translationY",
-            (config.screenHeight).toFloat()).apply {
+            (config.screenHeight).toFloat() - 300).apply {
 
             duration = config.gameSpeed
             start()
