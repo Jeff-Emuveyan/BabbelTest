@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.example.core.getScreenHeight
 import com.example.game.managers.uimanager.Config
 import com.example.game.managers.uimanager.GameUIManager
 import com.example.game.managers.uimanager.UIParams
@@ -41,19 +42,22 @@ class GameFragment : Fragment() {
         showGameInfo(viewModel.getUserScore())
     }
 
+    /**
+     * This method is called to display the current score board of the game.
+     */
     private fun showGameInfo(userScore: Pair<Int, Int>?) {
         ScoreBottomSheet(userScore) { startGame() }
             .show(childFragmentManager, GameFragment::class.java.simpleName)
     }
 
+    /**
+     * This method starts a game session. A game session ends with the user chooses an answer or fails
+     * to provide an answer. This method can be called multiple times.
+     */
     private fun startGame() {
-
-        val displayMetrics = DisplayMetrics()
-        requireActivity().windowManager.defaultDisplay.getMetrics(displayMetrics)
-
-        var height = displayMetrics.heightPixels
         val uiParams = UIParams(binding.tvWord, binding.tvTranslation, binding.buttonPositive, binding.buttonNegative)
-        val config = Config(height, 15_000)
+        val config = Config(getScreenHeight(requireActivity()), 15_000)
+
         val gameUIManager =  GameUIManager(uiParams, config)
         gameUIManager.observeGameSessionConclusion { userAnsweredQuestionCorrectly ->
             handleGameSessionConclusion(userAnsweredQuestionCorrectly)
@@ -65,6 +69,10 @@ class GameFragment : Fragment() {
         gameUIManager.startGame(gameData.word, gameData.possibleTranslation, gameData.isCorrectTranslation)
     }
 
+    /**
+     * This method determines what happens after a game session is over. When this happens, we
+     * increase the pass or failed count and restart the game session.
+     */
     private fun handleGameSessionConclusion(userAnsweredQuestionCorrectly: Boolean) {
         when(userAnsweredQuestionCorrectly) {
             true -> viewModel.increasePassCount()
